@@ -1,29 +1,75 @@
 set nocompatible
+filetype off
 
-""""""""""""""""""""""""
-"
-"""""""""""""""""""""""""
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+"Bundle 'L9'
+"Bundle 'FuzzyFinder'
+Bundle 'Shougo/unite.vim'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'Lokaltog/powerline'
+Bundle 'surround.vim'
+Bundle 'repeat.vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdtree'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'nosami/OmniSharpServer'
+Bundle 'a.vim'
+Bundle 'Shougo/vimproc.vim'
+Bundle 'jQuery'
+Bundle 'anzaika/go.vim'
+Bundle 'gmarik/vim-markdown'
+Bundle 'uarun/vim-protobuf'
+Bundle 'bling/vim-airline'
+Bundle 'tpope/vim-git'
+"Bundle 'tpope/vim-fugitive'
+Bundle 'ragtag.vim'
+"Bundle 'taglist.vim'
+Bundle 'majutsushi/tagbar'
+Bundle 'octol/vim-cpp-enhanced-highlight'
+
+"Bundle 'Gundo'
+"Bundle 'klen/python-mode'
+"Bundle 'wesleyche/SrcExpl'
+"Bundle 'wesleyche/Trinity'
+
+Bundle 'tlib'
+Bundle 'tComment'
+nnoremap // :TComment<CR>
+vnoremap // :TComment<CR>
+
+"Bundle 'cscope.vim'
+map <silent> <Leader>lo :!./cscope.sh<CR><CR>:cs reset<CR>
+set cscopequickfix=""
+set cscopetag		" force :tag and CTRL-] using :cstag
+set cscopetagorder=0	" cscope database first, then tag files
+
+"Bundle 'xolox/vim-reload'
+"Bundle 'xolox/vim-misc'
+
 set ruler number
-set cmdheight=3
+set cmdheight=2
 set incsearch hlsearch
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
 set autoindent
-set softtabstop=0 tabstop=8 shiftwidth=8 noexpandtab
-autocmd FileType erlang setlocal tabstop=4 shiftwidth=4 smarttab expandtab
-autocmd FileType python setlocal tabstop=4 shiftwidth=4 smarttab expandtab
-autocmd FileType haskell setlocal tabstop=4 shiftwidth=4 smarttab expandtab
+set tabstop=4 softtabstop=4 shiftwidth=4 smarttab expandtab
+autocmd FileType go setlocal tabstop=8 softtabstop=0 shiftwidth=8 nosmarttab noexpandtab
 
 set history=50
 set showcmd
 
 set helplang=cn,en
 
-set sessionoptions+=globals,localoptions,resize,winpos
-set sessionoptions-=tabpages
-set runtimepath+=/usr/share/vim/vimfiles,/usr/share/vim/vimfiles/after
-runtime! ftplugin/*.vim
+set sessionoptions=buffers,curdir
+
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 
 """"""""""""""""""""""""
 " filetype
@@ -35,6 +81,7 @@ syntax on
 " file format
 """""""""""""""""""""""""""
 set fileformats=unix,dos,mac fileformat=unix
+set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,big5,gb18030,euc-jp,euc-kr,latin1
 set fileencoding=utf-8
 set termencoding=utf-8
@@ -52,7 +99,7 @@ let g:C_CFlags = "-std=c99 -Werror -Wextra -Wall -Wno-unused-function -Wno-unuse
 """"""""""""""""""""
 " Tag list
 """"""""""""""""""""
-let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+" let Tlist_Ctags_Cmd = '/usr/local/bin/exctags'
 
 let Tlist_Auto_Open = 1
 let Tlist_Auto_Update= 1
@@ -65,11 +112,17 @@ let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_Right_Window = 0
 let Tlist_File_Fold_Auto_Close = 1
 let Tlist_Show_One_File = 1
-let Tlist_Compact_Format = 1
+let Tlist_Compact_Format = 0
 
-map <silent> <Leader>lo :!./cscope.sh<CR><CR>:cs reset<CR>
-map <silent> <Leader>tl :TlistToggle<CR>
+" map <silent> <Leader>tl :TlistToggle<CR>
+map <silent> <Leader>tl :TagbarToggle<CR>
+map <silent> <Leader>tb :TagbarToggle<CR>
 map <silent> <Leader>nt :NERDTreeToggle<CR>
+
+" tagbar
+let g:tagbar_left = 1
+let g:tagbar_sort = 0
+let g:tagbar_width = 28
 
 
 """"""""""""""""""""
@@ -78,7 +131,7 @@ map <silent> <Leader>nt :NERDTreeToggle<CR>
 "let loaded_nerd_tree = 1
 "autocmd VimEnter * NERDTree
 "autocmd VimEnter * wincmd p
-let NERDTreeIgnore=['\.vim$', '\.bin$', '\.out$', '\.elf$', '\.app$', '\.7z$', '\.gz$', '\.tar$', '\.zip$', '\.bz2$', '\.lzma$', '\.swp$', '\.swo$', '^\.', '\~$', '\.o$', '\.6$', '\.beam']
+let NERDTreeIgnore=['^Session.vim$', '\.bin$', '\.out$', '\.elf$', '\.app$', '\.7z$', '\.gz$', '\.tar$', '\.zip$', '\.bz2$', '\.lzma$', '\.swp$', '\.swo$', '^\.', '\~$', '\.o$', '\.d$', '\.6$', '\.beam']
 
 let NERDTreeChDirMode = 2
 let NERDTreeWinSize = 28
@@ -97,9 +150,60 @@ let g:netrw_hide = 1
 let g:netrw_list_hide = '.*\.swp$,.*\.o$,.*\~$,.*\.out$,.*\*$,^\..*'
 let g:netrw_winsize = 80
 
+" status line
+set laststatus=2
+" set fillchars+=stl: ,stlnc: 
+let g:Powerline_symbosl = 'fancy'
+let g:Powerline_cache_enabled = 1
+let g:Powerline_cache_file = '~/.vim/bundle/powerline/Powerline.cache'
 
 """""""""""""""""""""""""""
 " colorscheme
 """""""""""""""""""""""""""
-colorscheme desert
-set background=dark
+set t_Co=256
+if has('gui_running')
+	set background=light
+    else
+	set background=dark
+endif
+
+Bundle 'jonathanfilip/vim-lucius'
+Bundle 'pyte'
+
+Bundle 'moria'
+let moria_fontface = 'mixed' 
+
+Bundle 'altercation/vim-colors-solarized'
+let g:solarized_termcolors=256
+colorscheme solarized
+
+Bundle 'tomasr/molokai'
+let g:rehash256 = 1
+let g:molokai_original = 1
+colorscheme molokai
+
+
+if &term =~ '256color'
+  " disable Background Color Erase (BCE) so that color schemes
+  " render properly when inside 256-color tmux and GNU screen.
+  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+  set t_ut=
+endif
+
+"" Make Vim recognize XTerm escape sequences for Page and Arrow
+"" keys combined with modifiers such as Shift, Control, and Alt.
+"" See http://www.reddit.com/r/vim/comments/1a29vk/_/c8tze8p
+"if &term =~ '^screen'
+"  " Page keys
+"  " http://sourceforge.net/p/tmux/tmux-code/ci/master/tree/FAQ
+"  execute "set t_kP=\e[5;*~"
+"  execute "set t_kN=\e[6;*~"
+"
+"  " Arrow keys http://unix.stackexchange.com/a/34723
+"  execute "set <xUp>=\e[1;*A"
+"  execute "set <xDown>=\e[1;*B"
+"  execute "set <xRight>=\e[1;*C"
+"  execute "set <xLeft>=\e[1;*D"
+"endif
+"
+"Bundle 'nacitar/terminalkeys.vim'

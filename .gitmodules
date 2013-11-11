@@ -1,0 +1,6 @@
+[submodule "vim/bundle/vundle"]
+	path = vim/bundle/vundle
+	url = git://github.com/gmarik/vundle.git
+[submodule "vim/plugin/cscope_maps.vim"]
+	path = vim/plugin/cscope_maps.vim
+	url = https://github.com/simplyzhao/cscope_maps.vim.git
