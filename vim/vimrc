@@ -101,10 +101,14 @@ set termencoding=utf-8
 """""""""""""""""""""""
 let g:C_CFlags = "-std=c99 -Werror -Wextra -Wall -Wno-unused-function -Wno-unused-parameter -Wno-unused-variable -Wno-unused-label -g -O0 -c"
 
+let os = substitute(system("uname -s"), "\n", "", "")
+
 """"""""""""""""""""
 " Tag list
 """"""""""""""""""""
-" let Tlist_Ctags_Cmd = '/usr/local/bin/exctags'
+if os == "FreeBSD"
+let Tlist_Ctags_Cmd = '/usr/local/bin/exctags'
+endif
 
 let Tlist_Auto_Open = 1
 let Tlist_Auto_Update= 1
@@ -125,6 +129,13 @@ map <silent> <Leader>tb :TagbarToggle<CR>
 map <silent> <Leader>nt :NERDTreeToggle<CR>
 
 " tagbar
+if os == "FreeBSD"
+let g:tagbar_ctags_bin = '/usr/local/bin/exctags'
+endif
+
+let g:tagbar_autoclose = 0
+let g:tagbar_left = 1
+let g:tagbar_sort = 0
 let g:tagbar_left = 1
 let g:tagbar_sort = 0
 let g:tagbar_width = 28
