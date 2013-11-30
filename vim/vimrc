@@ -29,6 +29,7 @@ Bundle 'ragtag.vim'
 "Bundle 'taglist.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'octol/vim-cpp-enhanced-highlight'
+Bundle 'oscarh/vimerl'
 
 "Bundle 'Gundo'
 "Bundle 'klen/python-mode'
@@ -58,7 +59,7 @@ set backspace=indent,eol,start
 
 set autoindent
 set tabstop=8 softtabstop=0 shiftwidth=8 nosmarttab noexpandtab
-autocmd FileType haskell,python setlocal tabstop=4 softtabstop=4 shiftwidth=4 smarttab expandtab
+autocmd FileType haskell,python,proto setlocal tabstop=4 softtabstop=4 shiftwidth=4 smarttab expandtab
 
 map <silent> <Leader>tt :set tabstop=8 softtabstop=0 shiftwidth=8 nosmarttab noexpandtab<CR>
 map <silent> <Leader>th :set tabstop=4 softtabstop=0 shiftwidth=4 nosmarttab noexpandtab<CR>
