@@ -13,6 +13,8 @@ Bundle 'Lokaltog/powerline'
 Bundle 'surround.vim'
 Bundle 'repeat.vim'
 Bundle 'scrooloose/syntastic'
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = '-std=c++11'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'nosami/OmniSharpServer'
@@ -178,7 +180,7 @@ let g:tagbar_type_go = {
 "let loaded_nerd_tree = 1
 "autocmd VimEnter * NERDTree
 "autocmd VimEnter * wincmd p
-let NERDTreeIgnore=['^Session.vim$', '\.bin$', '\.out$', '\.elf$', '\.app$', '\.7z$', '\.gz$', '\.tar$', '\.zip$', '\.bz2$', '\.lzma$', '\.swp$', '\.swo$', '^\.', '\~$', '\.o$', '\.d$', '\.6$', '\.beam']
+let NERDTreeIgnore=['^Session.vim$', '\.bin$', '\.out$', '\.elf$', '\.app$', '\.7z$', '\.gz$', '\.tar$', '\.zip$', '\.bz2$', '\.lzma$', '\.swp$', '\.swo$', '^\.', '\~$', '\.o$', '\.so$', '\.d$', '\.6$', '\.beam$', '\.dylib$']
 
 let NERDTreeChDirMode = 2
 let NERDTreeWinSize = 28
@@ -208,6 +210,8 @@ let g:Powerline_cache_file = '~/.vim/bundle/powerline/Powerline.cache'
 " Scala
 Bundle 'derekwyatt/vim-scala'
 
+" rust language
+Bundle 'wting/rust.vim'
 
 """""""""""""""""""""""""""
 " colorscheme
