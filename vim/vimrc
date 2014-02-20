@@ -30,6 +30,7 @@ Bundle 'ragtag.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'octol/vim-cpp-enhanced-highlight'
 Bundle 'oscarh/vimerl'
+Bundle 'SirVer/ultisnips'
 
 "Bundle 'Gundo'
 "Bundle 'klen/python-mode'
@@ -59,7 +60,7 @@ set backspace=indent,eol,start
 
 set autoindent
 set tabstop=8 softtabstop=0 shiftwidth=8 nosmarttab noexpandtab
-autocmd FileType haskell,python,proto setlocal tabstop=4 softtabstop=4 shiftwidth=4 smarttab expandtab
+autocmd FileType erlang,sh,lua,haskell,python,proto setlocal tabstop=4 softtabstop=0 shiftwidth=4 smarttab expandtab
 
 map <silent> <Leader>tt :set tabstop=8 softtabstop=0 shiftwidth=8 nosmarttab noexpandtab<CR>
 map <silent> <Leader>th :set tabstop=4 softtabstop=0 shiftwidth=4 nosmarttab noexpandtab<CR>
@@ -202,6 +203,11 @@ set laststatus=2
 let g:Powerline_symbosl = 'fancy'
 let g:Powerline_cache_enabled = 1
 let g:Powerline_cache_file = '~/.vim/bundle/powerline/Powerline.cache'
+
+
+" Scala
+Bundle 'derekwyatt/vim-scala'
+
 
 """""""""""""""""""""""""""
 " colorscheme
