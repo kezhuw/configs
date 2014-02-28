@@ -1,0 +1,11 @@
+export BASH_ENV=~/.bashrc
+if [ -f ~/.bashrc ]; then source ~/.bashrc; fi
+
+NEW_LIBRARY_PATH=/usr/local/lib64:/usr/local/lib:/usr/local/lib32
+NEW_INCLUDE_PATH=/usr/local/include
+
+export LIBRARY_PATH=$NEW_LIBRARY_PATH:$LIBRARY_PATH
+export LD_LIBRARY_PATH=$NEW_LIBRARY_PATH:$LD_LIBRARY_PATH
+
+export C_INCLUDE_PATH=$NEW_INCLUDE_PATH:$C_INCLUDE_PATH
+export CPLUS_INCLUDE_PATH=$NEW_INCLUDE_PATH:$CPLUS_INCLUDE_PATH

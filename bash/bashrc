@@ -1,0 +1,25 @@
+
+# PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/games:/usr/local/sbin:/usr/local/bin:$HOME/bin; export PATH
+
+export TERM=screen-256color
+
+export PAGER=less
+export EDITOR=vim
+
+# go
+export GOOS=freebsd
+export GOARCH=amd64
+export GOROOT=/home/kezhuw/goroot
+export GOPATH=/home/kezhuw/gocode
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
+# ibus
+export XIM=ibus
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=xim
+export XMODIFIERS=@im=ibus
+export XIM_PROGRAM="ibus-daemon"
+export XIM_ARGS="--daemonize --xim"
+
+alias ls='ls -FG'
+alias tmux='tmux -2'
