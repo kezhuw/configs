@@ -5,20 +5,23 @@ set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-"Bundle 'L9'
-"Bundle 'FuzzyFinder'
+Bundle 'scrooloose/nerdtree'
+Bundle 'majutsushi/tagbar'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'a.vim'
+
+Bundle 'L9'
+Bundle 'FuzzyFinder'
 Bundle 'Shougo/unite.vim'
+let g:unite_enable_start_insert = 1
+
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/powerline'
 Bundle 'surround.vim'
 Bundle 'repeat.vim'
 Bundle 'scrooloose/syntastic'
 let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_cpp_compiler_options = '-std=c++11'
-Bundle 'scrooloose/nerdtree'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'nosami/OmniSharpServer'
-Bundle 'a.vim'
+let g:syntastic_cpp_compiler_options = '-std=c++1y -stdlib=libc++'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'jQuery'
 Bundle 'anzaika/go.vim'
@@ -29,10 +32,12 @@ Bundle 'tpope/vim-git'
 "Bundle 'tpope/vim-fugitive'
 Bundle 'ragtag.vim'
 "Bundle 'taglist.vim'
-Bundle 'majutsushi/tagbar'
 Bundle 'octol/vim-cpp-enhanced-highlight'
 Bundle 'oscarh/vimerl'
 Bundle 'SirVer/ultisnips'
+Bundle 'derekwyatt/vim-scala'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'nosami/OmniSharpServer'
 
 "Bundle 'Gundo'
 "Bundle 'klen/python-mode'
@@ -173,6 +178,22 @@ let g:tagbar_type_go = {
     \ 'ctagsargs' : '-sort -silent'
 \ }
 
+let g:tagbar_type_scala = {
+    \ 'ctagstype' : 'scala',
+    \ 'kinds'     : [
+        \ 'p:packages:1',
+        \ 'V:values',
+        \ 'v:variables',
+        \ 'T:types',
+        \ 't:traits',
+        \ 'o:objects',
+        \ 'a:aclasses',
+        \ 'c:classes',
+        \ 'r:cclasses',
+        \ 'm:methods'
+    \ ]
+\ }
+
 
 """"""""""""""""""""
 " NERD_Tree
@@ -229,8 +250,9 @@ Bundle 'pyte'
 Bundle 'moria'
 let moria_fontface = 'mixed' 
 
-Bundle 'altercation/vim-colors-solarized'
 let g:solarized_termcolors=256
+let g:solarized_visibility="high"
+let g:solarized_degrade = 1
 colorscheme solarized
 
 Bundle 'tomasr/molokai'
