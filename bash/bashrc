@@ -1,7 +1,8 @@
 
 # PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/games:/usr/local/sbin:/usr/local/bin:$HOME/bin; export PATH
 
-export TERM=screen-256color
+# export TERM=screen-256color
+# export TERM=xterm-256color
 
 export PAGER=less
 export EDITOR=vim
@@ -9,7 +10,8 @@ export EDITOR=vim
 # go
 export GOOS=freebsd
 export GOARCH=amd64
-export GOROOT=/home/kezhuw/goroot
+# export GOROOT=/home/kezhuw/goroot
+export GOROOT=/usr/local/go
 export GOPATH=/home/kezhuw/gocode
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
