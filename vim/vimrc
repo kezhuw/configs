@@ -6,7 +6,6 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'a.vim'
 
 Bundle 'L9'
@@ -183,9 +182,8 @@ Bundle 'pyte'
 Bundle 'moria'
 let moria_fontface = 'mixed' 
 
-let g:solarized_termcolors=256
+Bundle 'altercation/vim-colors-solarized'
 let g:solarized_visibility="high"
-let g:solarized_degrade = 1
 colorscheme solarized
 
 Bundle 'tomasr/molokai'
