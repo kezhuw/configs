@@ -33,7 +33,6 @@ Bundle 'ragtag.vim'
 Bundle 'octol/vim-cpp-enhanced-highlight'
 Bundle 'oscarh/vimerl'
 Bundle 'SirVer/ultisnips'
-Bundle 'derekwyatt/vim-scala'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'nosami/OmniSharpServer'
 
