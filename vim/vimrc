@@ -29,7 +29,6 @@ Bundle 'tpope/vim-git'
 Bundle 'ragtag.vim'
 "Bundle 'taglist.vim'
 Bundle 'octol/vim-cpp-enhanced-highlight'
-Bundle 'oscarh/vimerl'
 Bundle 'SirVer/ultisnips'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'nosami/OmniSharpServer'
@@ -345,3 +344,7 @@ let g:tagbar_type_haskell = {
         \ 'type'   : 't'
     \ }
 \ }
+
+
+" Erlang
+Bundle 'jimenezrick/vimerl'
