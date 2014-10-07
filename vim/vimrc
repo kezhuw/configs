@@ -243,8 +243,10 @@ let g:airline_symbols.whitespace = 'Ξ'
 
 
 Bundle 'Valloric/YouCompleteMe'
+set completeopt=menuone
+let g:ycm_auto_trigger = 0
 let g:ycm_confirm_extra_conf = 0
-let g:ycm_filetype_specific_completion_to_disable = {'*': 1}
+let g:ycm_add_preview_to_completeopt = 0
 
 
 " tagbar
