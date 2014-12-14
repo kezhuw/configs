@@ -21,7 +21,6 @@ let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_cpp_compiler_options = '-std=c++1y -stdlib=libc++'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'jQuery'
-Bundle 'anzaika/go.vim'
 Bundle 'gmarik/vim-markdown'
 Bundle 'uarun/vim-protobuf'
 Bundle 'tpope/vim-git'
@@ -263,6 +262,7 @@ let g:tagbar_width = 28
 
 
 " Go
+Bundle 'fatih/vim-go'
 let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent',
