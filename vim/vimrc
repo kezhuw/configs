@@ -35,7 +35,6 @@ Plugin 'nosami/OmniSharpServer'
 "Plugin 'klen/python-mode'
 "Plugin 'wesleyche/SrcExpl'
 "Plugin 'wesleyche/Trinity'
-Plugin 'Blackrush/vim-gocode'
 
 Plugin 'tlib'
 Plugin 'tComment'
@@ -137,7 +136,7 @@ map <silent> <Leader>nt :NERDTreeToggle<CR>
 "let loaded_nerd_tree = 1
 "autocmd VimEnter * NERDTree
 "autocmd VimEnter * wincmd p
-let NERDTreeIgnore=['^Session.vim$', '\.bin$', '\.out$', '\.elf$', '\.app$', '\.7z$', '\.gz$', '\.tar$', '\.zip$', '\.bz2$', '\.lzma$', '\.swp$', '\.swo$', '^\.', '\~$', '\.o$', '\.so$', '\.d$', '\.6$', '\.beam$', '\.dylib$']
+let NERDTreeIgnore=['^Session.vim$', '\.bin$', '\.out$', '\.elf$', '\.app$', '\.7z$', '\.gz$', '\.tar$', '\.zip$', '\.bz2$', '\.lzma$', '\.swp$', '\.swo$', '^\.', '\~$', '\.o$', '\.so$', '\.d$', '\.6$', '\.beam$', '\.dylib$', '^cscope\..*']
 
 let NERDTreeChDirMode = 2
 let NERDTreeWinSize = 28
@@ -290,6 +289,9 @@ let g:tagbar_type_go = {
         \ 'ntype' : 'n'
     \ }
 \ }
+
+" Swift
+Plugin 'keith/swift.vim'
 
 
 " Rust
