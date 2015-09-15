@@ -1,11 +1,24 @@
+let os = substitute(system("uname -s"), "\n", "", "")
+
 set nocompatible
 filetype off
 
+
+" vundle plugins {{
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 Plugin 'VundleVim/Vundle.vim'
+
 Plugin 'scrooloose/nerdtree'
+let NERDTreeIgnore=['^Session.vim$', '\.bin$', '\.out$', '\.elf$', '\.app$', '\.7z$', '\.gz$', '\.tar$', '\.zip$', '\.bz2$', '\.lzma$', '\.swp$', '\.swo$', '^\.', '\~$', '\.o$', '\.so$', '\.d$', '\.6$', '\.beam$', '\.dylib$', '^cscope\..*']
+
+let NERDTreeChDirMode = 2
+let NERDTreeWinSize = 28
+let NERDTreeWinPos = "right"
+map <silent> <Leader>nt :NERDTreeToggle<CR>
+
+
 Plugin 'a.vim'
 
 Plugin 'L9'
@@ -50,67 +63,11 @@ set cscopetagorder=0	" cscope database first, then tag files
 "Plugin 'xolox/vim-reload'
 "Plugin 'xolox/vim-misc'
 
-set ruler number
-set cmdheight=2
-set incsearch hlsearch
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
-set autoindent
-set tabstop=8 softtabstop=0 shiftwidth=8 nosmarttab noexpandtab
-autocmd FileType erlang,sh,lua,haskell,python,proto setlocal tabstop=4 softtabstop=0 shiftwidth=4 smarttab expandtab
-
-map <silent> <Leader>tt :set tabstop=8 softtabstop=0 shiftwidth=8 nosmarttab noexpandtab<CR>
-map <silent> <Leader>th :set tabstop=4 softtabstop=0 shiftwidth=4 nosmarttab noexpandtab<CR>
-map <silent> <Leader>t4 :set tabstop=4 softtabstop=4 shiftwidth=4 smarttab expandtab<CR>
-map <silent> <Leader>t2 :set tabstop=2 softtabstop=2 shiftwidth=2 smarttab expandtab<CR>
-
-set history=50
-set showcmd
-
-set helplang=cn,en
-
-set sessionoptions=buffers,curdir
-
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-
-""""""""""""""""""""""""
-" filetype
-""""""""""""""""""""""""
-filetype plugin indent on
-syntax on
-
-"""""""""""""""""""""""""""
-" file format
-"""""""""""""""""""""""""""
-set fileformats=unix,dos,mac fileformat=unix
-set encoding=utf-8
-set fileencodings=ucs-bom,utf-8,cp936,big5,gb18030,euc-jp,euc-kr,latin1
-set fileencoding=utf-8
-set termencoding=utf-8
-
 """""""""""""""""""""""
 " c.vim
 """""""""""""""""""""""
+Plugin 'vim-scripts/c.vim'
 let g:C_CFlags = "-std=c99 -Werror -Wextra -Wall -Wno-unused-function -Wno-unused-parameter -Wno-unused-variable -Wno-unused-label -g -O0 -c"
-
-let os = substitute(system("uname -s"), "\n", "", "")
-
-map <silent> <Leader>tb :TagbarToggle<CR>
-map <silent> <Leader>nt :NERDTreeToggle<CR>
-
-
-""""""""""""""""""""
-" NERD_Tree
-""""""""""""""""""""
-let NERDTreeIgnore=['^Session.vim$', '\.bin$', '\.out$', '\.elf$', '\.app$', '\.7z$', '\.gz$', '\.tar$', '\.zip$', '\.bz2$', '\.lzma$', '\.swp$', '\.swo$', '^\.', '\~$', '\.o$', '\.so$', '\.d$', '\.6$', '\.beam$', '\.dylib$', '^cscope\..*']
-
-let NERDTreeChDirMode = 2
-let NERDTreeWinSize = 28
-let NERDTreeWinPos = "right"
 
 
 """""""""""""""""""""""""""
@@ -210,6 +167,7 @@ let g:tagbar_sort = 0
 let g:tagbar_left = 1
 let g:tagbar_sort = 0
 let g:tagbar_width = 28
+map <silent> <Leader>tb :TagbarToggle<CR>
 
 
 " The Silver Searcher
@@ -309,3 +267,48 @@ let g:tagbar_type_haskell = {
 
 " Erlang
 Plugin 'jimenezrick/vimerl'
+
+" vundle plugins }}
+
+
+""""""""""""""""""""""""
+" filetype
+""""""""""""""""""""""""
+filetype plugin indent on
+syntax on
+
+set ruler number
+set cmdheight=2
+set incsearch hlsearch
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+set autoindent
+set tabstop=8 softtabstop=0 shiftwidth=8 nosmarttab noexpandtab
+autocmd FileType erlang,sh,lua,haskell,python,proto setlocal tabstop=4 softtabstop=0 shiftwidth=4 smarttab expandtab
+
+map <silent> <Leader>tt :set tabstop=8 softtabstop=0 shiftwidth=8 nosmarttab noexpandtab<CR>
+map <silent> <Leader>th :set tabstop=4 softtabstop=0 shiftwidth=4 nosmarttab noexpandtab<CR>
+map <silent> <Leader>t4 :set tabstop=4 softtabstop=4 shiftwidth=4 smarttab expandtab<CR>
+map <silent> <Leader>t2 :set tabstop=2 softtabstop=2 shiftwidth=2 smarttab expandtab<CR>
+
+set history=50
+set showcmd
+
+set helplang=cn,en
+
+set sessionoptions=buffers,curdir
+
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+"""""""""""""""""""""""""""
+" file format
+"""""""""""""""""""""""""""
+set fileformats=unix,dos,mac fileformat=unix
+set encoding=utf-8
+set fileencodings=ucs-bom,utf-8,cp936,big5,gb18030,euc-jp,euc-kr,latin1
+set fileencoding=utf-8
+set termencoding=utf-8
