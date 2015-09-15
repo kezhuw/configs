@@ -93,39 +93,12 @@ set fileencoding=utf-8
 set termencoding=utf-8
 
 """""""""""""""""""""""
-" autocmd
-"""""""""""""""""""""""
-" autocmd VimLeave * mks!
-
-"""""""""""""""""""""""
 " c.vim
 """""""""""""""""""""""
 let g:C_CFlags = "-std=c99 -Werror -Wextra -Wall -Wno-unused-function -Wno-unused-parameter -Wno-unused-variable -Wno-unused-label -g -O0 -c"
 
 let os = substitute(system("uname -s"), "\n", "", "")
 
-""""""""""""""""""""
-" Tag list
-""""""""""""""""""""
-if os == "FreeBSD"
-let Tlist_Ctags_Cmd = '/usr/local/bin/exctags'
-endif
-
-let Tlist_Auto_Open = 1
-let Tlist_Auto_Update= 1
-let Tlist_Auto_Highlight_Tag = 1
-let Tlist_Process_File_Always = 1
-let Tlist_Highlight_Tag_On_BufEnter = 1
-
-let Tlist_Show_One_File = 1
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_Use_Right_Window = 0
-let Tlist_File_Fold_Auto_Close = 1
-let Tlist_Show_One_File = 1
-let Tlist_Compact_Format = 0
-
-" map <silent> <Leader>tl :TlistToggle<CR>
-map <silent> <Leader>tl :TagbarToggle<CR>
 map <silent> <Leader>tb :TagbarToggle<CR>
 map <silent> <Leader>nt :NERDTreeToggle<CR>
 
@@ -133,34 +106,12 @@ map <silent> <Leader>nt :NERDTreeToggle<CR>
 """"""""""""""""""""
 " NERD_Tree
 """"""""""""""""""""
-"let loaded_nerd_tree = 1
-"autocmd VimEnter * NERDTree
-"autocmd VimEnter * wincmd p
 let NERDTreeIgnore=['^Session.vim$', '\.bin$', '\.out$', '\.elf$', '\.app$', '\.7z$', '\.gz$', '\.tar$', '\.zip$', '\.bz2$', '\.lzma$', '\.swp$', '\.swo$', '^\.', '\~$', '\.o$', '\.so$', '\.d$', '\.6$', '\.beam$', '\.dylib$', '^cscope\..*']
 
 let NERDTreeChDirMode = 2
 let NERDTreeWinSize = 28
 let NERDTreeWinPos = "right"
 
-""""""""""""""""""""
-" netrw
-""""""""""""""""""""
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
-let g:netrw_preview = 1
-let g:netrw_browse_split = 0
-let g:netrw_altv = 1
-let g:netrw_liststyle = 3
-let g:netrw_hide = 1
-let g:netrw_list_hide = '.*\.swp$,.*\.o$,.*\~$,.*\.out$,.*\*$,^\..*'
-let g:netrw_winsize = 80
-
-" status line
-set laststatus=2
-" set fillchars+=stl: ,stlnc: 
-let g:Powerline_symbosl = 'fancy'
-let g:Powerline_cache_enabled = 1
-let g:Powerline_cache_file = '~/.vim/bundle/powerline/Powerline.cache'
 
 """""""""""""""""""""""""""
 " colorscheme
@@ -215,6 +166,7 @@ endif
 
 " statusline
 Plugin 'bling/vim-airline'
+set laststatus=2
 let g:airline_left_sep='>'
 let g:airline_right_sep='<'
 let g:airline_detect_modified=1
