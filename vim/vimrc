@@ -260,6 +260,10 @@ let g:tagbar_sort = 0
 let g:tagbar_width = 28
 
 
+" The Silver Searcher
+Plugin 'rking/ag.vim'
+
+
 " Go
 Plugin 'fatih/vim-go'
 let g:tagbar_type_go = {
