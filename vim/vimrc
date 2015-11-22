@@ -76,6 +76,9 @@ Plugin 'tpope/vim-vinegar'
 
 " Filesystem Navigation }}
 
+" Prompt for actions: creating new file or editing existing file(s)
+Plugin 'EinfachTOll/DidYouMean'
+
 Plugin 'a.vim'
 
 Plugin 'L9'
