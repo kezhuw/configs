@@ -15,48 +15,66 @@ Plugin 'VundleVim/Vundle.vim'
 " http://vimcasts.org/blog/2013/01/oil-and-vinegar-split-windows-and-project-drawer/
 
 " Project Drawer
-Plugin 'scrooloose/nerdtree'
-let NERDTreeChDirMode = 2
-let NERDTreeWinSize = 28
-let NERDTreeWinPos = "right"
-let NERDTreeShowBookmarks = 1
-let NERDTreeAutoDeleteBuffer = 1
-" Close vim if the only window open is NERDTree.
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-map <silent> <Leader>nt :NERDTreeToggle<CR>
-let NERDTreeIgnore = [
-		\ '^Session.vim$',
-		\ '\.bin$',
-		\ '\.out$',
-		\ '\.elf$',
-		\ '\.app$',
-		\ '\.7z$',
-		\ '\.gz$',
-		\ '\.tar$',
-		\ '\.zip$',
-		\ '\.bz2$',
-		\ '\.lzma$',
-		\ '\.swp$',
-		\ '\.swo$',
-		\ '\~$',
-		\ '\.o$',
-		\ '\.so$',
-		\ '\.d$',
-		\ '\.6$',
-		\ '\.beam$',
-		\ '\.dylib$',
-		\ '^cscope\..*',
-		\ ]
+" Plugin 'scrooloose/nerdtree'
+" let NERDTreeChDirMode = 2
+" let NERDTreeWinSize = 28
+" let NERDTreeWinPos = "right"
+" let NERDTreeShowBookmarks = 1
+" let NERDTreeAutoDeleteBuffer = 1
+" " Close vim if the only window open is NERDTree.
+" autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" map <silent> <Leader>nt :NERDTreeToggle<CR>
+" let NERDTreeIgnore = [
+" 		\ '^Session.vim$',
+" 		\ '\.bin$',
+" 		\ '\.out$',
+" 		\ '\.elf$',
+" 		\ '\.app$',
+" 		\ '\.7z$',
+" 		\ '\.gz$',
+" 		\ '\.tar$',
+" 		\ '\.zip$',
+" 		\ '\.bz2$',
+" 		\ '\.lzma$',
+" 		\ '\.swp$',
+" 		\ '\.swo$',
+" 		\ '\~$',
+" 		\ '\.o$',
+" 		\ '\.so$',
+" 		\ '\.d$',
+" 		\ '\.6$',
+" 		\ '\.beam$',
+" 		\ '\.dylib$',
+" 		\ '^cscope\..*',
+" 		\ ]
 
 
 " Split Explorer
 Plugin 'tpope/vim-vinegar'
-Plugin 'Shougo/vimfiler.vim'
+" Plugin 'Shougo/vimfiler.vim'
 " unstable and conflict with vim-vinegar
 " let g:vimfiler_as_default_explorer = 1
 
-" Filesystem Navigation }}
+""""""""""""""""""""
+" netrw
+""""""""""""""""""""
+" let g:netrw_liststyle = 3
+" let g:netrw_banner = 1
+" let g:netrw_keepdir = 1
+" let g:netrw_list_hide = '^\.,' . netrw_gitignore#Hide()
+" let g:netrw_hide = 1
+" auto FileType netrw call s:setup_netrw_shortcuts()
+" function! s:setup_netrw_shortcuts()
+"     nmap <buffer> <nowait> q :bprevious<CR>
+" endfunction
+" if 1
+" else
+" let g:netrw_browse_split = 4
+" let g:netrw_altv = 1
+" let g:netrw_winsize = 25
+" endif
 
+" Filesystem Navigation }}
 
 Plugin 'a.vim'
 
@@ -208,9 +226,7 @@ if os == "FreeBSD"
 let g:tagbar_ctags_bin = '/usr/local/bin/exctags'
 endif
 let g:tagbar_autoclose = 0
-let g:tagbar_left = 1
-let g:tagbar_sort = 0
-let g:tagbar_left = 1
+let g:tagbar_left = 0
 let g:tagbar_sort = 0
 let g:tagbar_width = 28
 map <silent> <Leader>tb :TagbarToggle<CR>
@@ -345,11 +361,6 @@ set history=50
 set showcmd
 
 set helplang=cn,en
-
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
 
 """""""""""""""""""""""""""
 " file format
