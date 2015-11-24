@@ -242,6 +242,9 @@ autocmd QuickFixCmdPost vimgrep cwindow
 
 Plugin 'chrisbra/csv.vim'
 
+Plugin 'stephpy/vim-yaml'
+Plugin 'saltstack/salt-vim'
+
 " Go
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'fatih/vim-go'
