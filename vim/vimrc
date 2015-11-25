@@ -244,6 +244,7 @@ Plugin 'chrisbra/csv.vim'
 
 Plugin 'stephpy/vim-yaml'
 Plugin 'saltstack/salt-vim'
+Plugin 'markcornick/vim-vagrant'
 
 " Go
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
