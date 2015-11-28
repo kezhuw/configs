@@ -3,3 +3,8 @@
 	email = kezhuw@gmail.com
 [push]
 	default = simple
+[alias]
+	unstage = reset HEAD
+	last = log -1 HEAD
+	contributors = shortlog --summary --numbered --email
+	visual = !gitk
