@@ -242,6 +242,7 @@ autocmd QuickFixCmdPost vimgrep cwindow
 
 Plugin 'chrisbra/csv.vim'
 
+Plugin 'cespare/vim-toml'
 Plugin 'stephpy/vim-yaml'
 Plugin 'saltstack/salt-vim'
 Plugin 'markcornick/vim-vagrant'
