@@ -229,7 +229,7 @@ if os == "FreeBSD"
 let g:tagbar_ctags_bin = '/usr/local/bin/exctags'
 endif
 let g:tagbar_autoclose = 0
-let g:tagbar_left = 0
+let g:tagbar_left = 1
 let g:tagbar_sort = 0
 let g:tagbar_width = 28
 map <silent> <Leader>tb :TagbarToggle<CR>
