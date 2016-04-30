@@ -116,7 +116,9 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'nosami/OmniSharpServer'
 
 
+if has('python') || has('python3')
 Plugin 'SirVer/ultisnips'
+endif
 Plugin 'honza/vim-snippets'
 
 "Plugin 'Gundo'
