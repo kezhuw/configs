@@ -252,6 +252,12 @@ Plugin 'markcornick/vim-vagrant'
 " Go
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'fatih/vim-go'
+let g:go_fmt_command = "goimports"
+let g:go_fmt_experimental = 1
+auto FileType go nmap gi <Plug>(go-info)
+auto FileType go nmap gr <Plug>(go-rename)
+auto FileType go nmap gt <Plug>(go-test)
+
 let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent',
