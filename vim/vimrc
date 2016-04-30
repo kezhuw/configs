@@ -50,7 +50,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 
 " Split Explorer
-Plugin 'tpope/vim-vinegar'
+" Plugin 'tpope/vim-vinegar'
 " Plugin 'Shougo/vimfiler.vim'
 " unstable and conflict with vim-vinegar
 " let g:vimfiler_as_default_explorer = 1
@@ -58,21 +58,23 @@ Plugin 'tpope/vim-vinegar'
 """"""""""""""""""""
 " netrw
 """"""""""""""""""""
-" let g:netrw_liststyle = 3
-" let g:netrw_banner = 1
-" let g:netrw_keepdir = 1
-" let g:netrw_list_hide = '^\.,' . netrw_gitignore#Hide()
-" let g:netrw_hide = 1
-" auto FileType netrw call s:setup_netrw_shortcuts()
-" function! s:setup_netrw_shortcuts()
-"     nmap <buffer> <nowait> q :bprevious<CR>
-" endfunction
-" if 1
-" else
-" let g:netrw_browse_split = 4
-" let g:netrw_altv = 1
-" let g:netrw_winsize = 25
-" endif
+let g:netrw_liststyle = 3
+let g:netrw_banner = 1
+let g:netrw_keepdir = 1
+let g:netrw_list_hide = '^\.,' . netrw_gitignore#Hide()
+let g:netrw_hide = 1
+let g:netrw_sort_options = "i"
+let g:netrw_sort_sequence = '[\/]$,*,\.bak$,\.$,\.info$,\.swp$,\.obj$'
+auto FileType netrw call s:setup_netrw_shortcuts()
+function! s:setup_netrw_shortcuts()
+    nmap <buffer> <nowait> q :bprevious<CR>
+endfunction
+if 1
+else
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+endif
 
 " Filesystem Navigation }}
 
