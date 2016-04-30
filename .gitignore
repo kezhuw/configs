@@ -3,3 +3,5 @@
 *.swo
 *.tmp
 *.bak
+
+vim/bundle
