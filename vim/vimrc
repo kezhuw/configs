@@ -299,6 +299,9 @@ Plugin 'wting/rust.vim'
 " Scala
 Plugin 'derekwyatt/vim-scala'
 
+" Vue.js
+Plugin 'posva/vim-vue'
+
 " Haskell
 let g:tagbar_type_haskell = {
     \ 'ctagsbin'  : 'hasktags',

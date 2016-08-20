@@ -8,3 +8,5 @@
 	last = log -1 HEAD
 	contributors = shortlog --summary --numbered --email
 	visual = !gitk
+[core]
+	excludesFile = ~/.gitignore
