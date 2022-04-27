@@ -18,3 +18,12 @@
   copy:
     src: nvim
     dest: ~/.config/
+- name: Clone zinit repo
+  git:
+    repo: https://github.com/zdharma-continuum/zinit.git
+    dest: ~/.local/share/zinit/zinit.git
+    update: no
+- name: Copy zsh
+  copy:
+    src: zsh/zshrc
+    dest: ~/.zshrc

@@ -1,0 +1,150 @@
+export EDITOR=nvim
+
+export ANT_HOME=/usr/local/opt/ant/libexec/
+export GRADLE_HOME=/usr/local/opt/gradle/libexec/
+
+export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
+export PATH=$ANDROID_SDK_ROOT/emulator:$PATH
+export PATH=$ANDROID_SDK_ROOT/platform-tools/:$PATH
+# export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin
+# export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools/bin
+export PATH=/usr/local/opt/llvm/bin:$PATH
+export PATH=/usr/local/anaconda3/bin/:$PATH
+
+NEW_LIBRARY_PATH=/usr/local/lib
+NEW_INCLUDE_PATH=/usr/local/include
+
+export LIBRARY_PATH=$NEW_LIBRARY_PATH:$LIBRARY_PATH
+export LD_LIBRARY_PATH=$NEW_LIBRARY_PATH:$LD_LIBRARY_PATH
+
+export C_INCLUDE_PATH=$NEW_INCLUDE_PATH:$C_INCLUDE_PATH
+export CPLUS_INCLUDE_PATH=$NEW_INCLUDE_PATH:$CPLUS_INCLUDE_PATH
+
+export LANG=en_US.UTF-8
+
+alias ls='ls -G'
+
+eval "$(hub alias -s)"
+
+# Homebrew
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_INSTALL_UPGRADE=1
+export HOMEBREW_NO_ENV_HINTS=1
+
+ulimit -c unlimited
+
+## SpaceVim
+export PYTHON_HOST_PROG="$PYENV_ROOT/shims/python"
+export PYTHON3_HOST_PROG="$PYENV_ROOT/shims/python3"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# export SDKMAN_DIR="~/.sdkman"
+# [[ -s "~/.sdkman/bin/sdkman-init.sh" ]] && source "~/.sdkman/bin/sdkman-init.sh"
+
+# Local
+export PATH=$HOME/.local/bin:$PATH
+
+# Sphinx doc
+export PATH="/usr/local/opt/sphinx-doc/bin:$PATH"
+
+# Go
+export GOPATH=~/go
+export PATH=$PATH:$(go env GOPATH)/bin
+
+# Haskell
+export PATH=~/.cabal/bin:$PATH
+
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
+export JDTLS_HOME=~/.local/opt/jdtls/
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Local private zsh
+[ -f ~/.local/private.zsh ] && source ~/.local/private.zsh
+
+
+# Zinit
+source ~/.local/share/zinit/zinit.git/zinit.zsh
+
+setopt promptsubst
+
+# Use `print $precmd_functions` to get precmd functions.
+# Use `/usr/bin/time zsh -i -c exit` to timing start time.
+# Use `zinit times` to get tiem reports from zinit.
+
+zinit snippet OMZP::rsync
+zinit wait lucid atload'zicompinit' for OMZP::jenv
+zinit wait lucid atload'zicompinit' for OMZP::pyenv
+zinit wait lucid atload'zicompinit' blockf for OMZP::stack
+zinit snippet OMZP::virtualenv
+zinit snippet OMZP::fzf
+
+# It slows down 'command not found' response.
+# zinit snippet OMZP::command-not-found
+
+# zinit for OMZP::direnv
+# tmux pane ?
+zinit id-as"direnv" lucid \
+  atclone"direnv hook zsh > direnv.zsh" atpull"%atclone" \
+  pick"direnv.zsh" atload'!_direnv_hook' \
+  for zdharma-continuum/null
+# zinit id-as"direnv" wait lucid from"gh-r" \
+#     atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
+#     mv"direnv* -> direnv" pick"direnv" as"program" \
+#     src"zhook.zsh" atload"!_direnv_hook" for \
+#         direnv/direnv
+
+zinit wait lucid atinit'zstyle :omz:plugins:ssh-agent agent-forwarding on' for OMZP::ssh-agent
+
+zinit as"completion" for \
+    OMZP::docker/_docker \
+    OMZP::pod/_pod
+
+# This plugin is slowly, so we disable its indicator and postpone its initialization.
+zinit wait lucid atinit'MODE_INDICATOR=""' atload'!vim-mode-precmd; vim-mode-cursor-init-hook' for softmoth/zsh-vim-mode
+
+# zinit id-as"starship" from"gh-r" \
+#     atclone'./starship init zsh --print-full-init > starship.zsh' atpull'%atclone' \
+#     pick"starship" as"program" \
+#     atload"source starship.zsh; starship_precmd" wrap-track"starship_precmd" \
+#     for starship/starship
+
+# eval $(starship init zsh)
+# zinit id-as"starship" nocompile \
+#     atclone'starship init zsh --print-full-init > starship.zsh' atpull'%atclone' \
+#     pick"starship.zsh" atload'!starship_precmd' \
+#     for zdharma/null
+
+# zinit id-as"starship" from"gh-r" extract'-starship' as"program" \
+#     atclone'./starship init zsh --print-full-init > starship.zsh' atpull'%atclone' \
+#     for starship/starship
+
+zinit load romkatv/powerlevel10k
+
+# zinit ice lucid
+# zinit light denysdovhan/spaceship-prompt
+
+zinit wait lucid for \
+ atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+    zdharma-continuum/fast-syntax-highlighting \
+ blockf \
+    zsh-users/zsh-completions \
+    BuonOmo/yarn-completion \
+ atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions
+
+zinit wait'0a' lucid for zsh-users/zsh-history-substring-search
+
+zinit snippet 'https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh'
+
+zinit wait lucid atload'_zshz_precmd' for agkozak/zsh-z
+
+zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
+    atpull'%atclone' pick"clrs.zsh" nocompile'!' \
+    atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
+zinit light trapd00r/LS_COLORS
