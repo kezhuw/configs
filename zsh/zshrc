@@ -65,7 +65,7 @@ export JDTLS_HOME=~/.local/opt/jdtls/
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Local private zsh
-[ -f ~/.local/private.zsh ] && source ~/.local/private.zsh
+[ -f ~/.private/zshrc ] && source ~/.private/zshrc
 
 
 # Zinit
