@@ -1,0 +1,19 @@
+- name: Gather facts
+  hosts: all
+  tasks:
+    - name: Sync config files
+      import_tasks: sync-files.yaml
+    - name: Classify hosts depending on their OS distribution
+      group_by:
+        key: os_{{ ansible_facts['system'] | lower }}
+
+- name: Provision macOS
+  hosts: os_darwin
+  gather_facts: False
+  tasks:
+    - name: Install packages
+      include_role:
+        name: macos
+      when: onlyfiles is not defined
+  environment:
+    PATH: "{{ ansible_env.PATH }}:/usr/local/bin"

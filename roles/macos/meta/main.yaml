@@ -1,0 +1,11 @@
+#     homebrew_installed_packages:
+#       - tldr
+#   roles:
+#     - geerlingguy.mac.homebrew
+#     - geerlingguy.mac.mas
+
+# dependencies:
+# - role: geerlingguy.mac.homebrew
+#   vars:
+#     homebrew_installed_packages:
+#       - tldr

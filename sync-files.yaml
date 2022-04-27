@@ -1,0 +1,20 @@
+- name: Copy git config
+  copy:
+    src: git/gitconfig
+    dest: ~/.gitconfig
+- name: Copy git ignore
+  copy:
+    src: git/gitignore
+    dest: ~/.gitignore
+- name: Copy tmux.conf
+  copy:
+    src: tmux/tmux.conf
+    dest: ~/.tmux.conf
+- name: Copy alacritty.yml
+  copy:
+    src: alacritty
+    dest: ~/.config/
+- name: Copy nvim configs
+  copy:
+    src: nvim
+    dest: ~/.config/

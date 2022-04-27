@@ -1,0 +1,29 @@
+- name: Tap repositories
+  homebrew_tap:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ repositories }}"
+
+- name: Install packages
+  homebrew:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ packages }}"
+
+- name: Uninstall packages
+  homebrew:
+    name: "{{ item }}"
+    state: absent
+  loop: "{{ uninstalled_packages }}"
+
+- name: Install casks
+  homebrew_cask:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ casks }}"
+
+- name: List installed MAS apps.
+  include_role:
+    name: geerlingguy.mac.mas
+  vars:
+    mas_installed_apps: "{{ apps }}"

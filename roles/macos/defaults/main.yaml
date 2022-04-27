@@ -1,0 +1,89 @@
+packages:
+  - tldr
+  - tree
+  - pwgen
+  - htop
+  - fzf
+  - direnv
+  - podman
+  - tmux
+  - gradle
+  - go
+  - mas
+  - neovim
+  - pv
+  - bazel
+  - gh
+  - hub
+  - wget
+  - kcptun
+  - node
+  - yarn
+  - sqlite
+  - ranger
+  - dos2unix
+  - sshuttle
+    #  - mosh
+
+repositories:
+  - homebrew/cask-fonts
+
+uninstalled_packages:
+  - docker
+
+casks:
+  - alfred
+  - alacritty
+  - iina
+  - firefox
+  - itsycal
+  - logseq
+  - cheatsheet
+  - selfcontrol
+  - sequel-ace
+  - docker
+  - kindle
+  - calibre
+  - google-chrome
+  - postman
+  - vagrant
+  - wireshark
+
+  - font-agave-nerd-font
+  - font-awesome-terminal-fonts
+  - font-fira-code
+  - font-fira-mono
+  - font-fira-sans
+  - font-firacode-nerd-font
+  - font-firacode-nerd-font-mono
+  - font-firamono-nerd-font
+  - font-firamono-nerd-font-mono
+  - font-hack
+  - font-hack-nerd-font
+  - font-inconsolata
+  - font-inconsolata-nerd-font-mono
+  - homebrew/cask-fonts/font-monoid
+  - font-monoid-nerd-font
+  - font-source-code-pro
+  - font-sourcecodepro-nerd-font
+  - font-sourcecodepro-nerd-font-mono
+  - amorphousdiskmark
+  - istat-menus
+
+apps:
+  - { id: 441258766, name: "Magnet" }
+  - { id: 918858936, name: "AirMail" }
+  - { id: 937984704, name: "Amphetamine" }
+  - { id: 1274495053, name: "Microsoft To Do" }
+  - { id: 414030210, name: "LimeChat" }
+  - { id: 425264550, name: "Disk Speed Test" }
+  - { id: 1112075769, name: "Pine Player" }
+  - { id: 1037779758, name: "Best Trace" }
+  - { id: 1440013765, name: "Elpy" }
+  - { id: 1452453066, name: "Hidden Bar" }
+  - { id: 568494494, name: "Pocket" }
+  - { id: 1484204619, name: "WakeOnCommand" }
+  # Safari extensions
+  - { id: 1540160809, name: "OneTab" }
+  - { id: 1477385213, name: "Save to Pocket" }
+  - { id: 1473726602, name: "Tab Space" }
