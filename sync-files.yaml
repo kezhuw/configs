@@ -6,6 +6,11 @@
   copy:
     src: git/gitignore
     dest: ~/.gitignore
+- name: Clone tpm repo
+  git:
+    repo: https://github.com/tmux-plugins/tpm.git
+    dest: ~/.tmux/plugins/tpm
+    update: no
 - name: Copy tmux.conf
   copy:
     src: tmux/tmux.conf
@@ -23,6 +28,11 @@
     repo: https://github.com/zdharma-continuum/zinit.git
     dest: ~/.local/share/zinit/zinit.git
     update: no
+- name: private directory
+  file:
+    path: ~/.private
+    state: directory
+    mode: '0700'
 - name: Copy zsh
   copy:
     src: zsh/zshrc

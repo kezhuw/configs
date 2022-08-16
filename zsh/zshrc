@@ -1,3 +1,12 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+export DISABLE_AUTO_TITLE='true'
+
 export EDITOR=nvim
 
 export ANT_HOME=/usr/local/opt/ant/libexec/
@@ -30,6 +39,10 @@ eval "$(hub alias -s)"
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_INSTALL_UPGRADE=1
 export HOMEBREW_NO_ENV_HINTS=1
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
+# Python
+eval "$(pyenv init -)"
 
 ulimit -c unlimited
 
@@ -79,7 +92,6 @@ setopt promptsubst
 
 zinit snippet OMZP::rsync
 zinit wait lucid atload'zicompinit' for OMZP::jenv
-zinit wait lucid atload'zicompinit' for OMZP::pyenv
 zinit wait lucid atload'zicompinit' blockf for OMZP::stack
 zinit snippet OMZP::virtualenv
 zinit snippet OMZP::fzf

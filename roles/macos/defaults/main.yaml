@@ -15,6 +15,7 @@ packages:
   - bazel
   - gh
   - hub
+  - ripgrep
   - wget
   - kcptun
   - node
@@ -23,6 +24,10 @@ packages:
   - ranger
   - dos2unix
   - sshuttle
+  - pyenv
+  - pyenv-virtualenv
+  - pyenv-ccache
+  - pyenv-pip-migrate
     #  - mosh
 
 repositories:
@@ -54,19 +59,15 @@ casks:
   - font-fira-code
   - font-fira-mono
   - font-fira-sans
-  - font-firacode-nerd-font
-  - font-firacode-nerd-font-mono
-  - font-firamono-nerd-font
-  - font-firamono-nerd-font-mono
+  - font-fira-code-nerd-font
+  - font-fira-mono-nerd-font
   - font-hack
   - font-hack-nerd-font
   - font-inconsolata
-  - font-inconsolata-nerd-font-mono
+  - font-inconsolata-nerd-font
   - homebrew/cask-fonts/font-monoid
   - font-monoid-nerd-font
   - font-source-code-pro
-  - font-sourcecodepro-nerd-font
-  - font-sourcecodepro-nerd-font-mono
   - amorphousdiskmark
   - istat-menus
 
